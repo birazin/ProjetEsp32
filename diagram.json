@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "author": "Automação Extensão",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -72.1, "left": 4.6, "attrs": {} },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": -168.8,
+      "left": -112.98,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": -150.4,
+      "left": 164,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 15.8,
+      "left": 259.2,
+      "attrs": { "color": "green" }
+    },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": 144.2, "left": 124.8, "attrs": {} },
+    {
+      "type": "wokwi-led-ring",
+      "id": "lampada",
+      "top": 158.98,
+      "left": 277.16,
+      "rotate": 90,
+      "attrs": { "pixels": "20" }
+    }
+  ],
+  "connections": [
+    [ "esp:GND.1", "pir1:GND", "black", [ "v0" ] ],
+    [ "esp:3V3", "pir1:VCC", "red", [ "v0" ] ],
+    [ "esp:D13", "pir1:OUT", "green", [ "v0" ] ],
+    [ "esp:GND.1", "ldr1:GND", "black", [ "v0" ] ],
+    [ "esp:3V3", "ldr1:VCC", "red", [ "v0" ] ],
+    [ "esp:D34", "ldr1:AO", "orange", [ "v0" ] ],
+    [ "esp:GND.1", "btn1:1.L", "black", [ "v0" ] ],
+    [ "esp:D14", "btn1:2.R", "blue", [ "v0" ] ],
+    [ "esp:GND.1", "relay1:GND", "black", [ "v0" ] ],
+    [ "esp:5V", "relay1:VCC", "red", [ "v0" ] ],
+    [ "esp:D26", "relay1:IN", "purple", [ "v0" ] ],
+    [ "esp:5V", "relay1:COM", "red", [ "v0" ] ],
+    [ "relay1:NO", "lampada:VCC", "green", [ "v0" ] ],
+    [ "esp:GND.1", "lampada:GND", "black", [ "v0" ] ],
+    [ "esp:D27", "lampada:DIN", "yellow", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
